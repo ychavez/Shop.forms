@@ -11,10 +11,13 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Shop.forms.Droid;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(NotificationHelper))]
 namespace Shop.forms.Droid
 {
-    class NotificationHelper
+    class NotificationHelper:INotification
     {
         private Context mContext;
         private NotificationCompat.Builder mBuilder;
@@ -33,14 +36,11 @@ namespace Shop.forms.Droid
                 intent.PutExtra(title, message);
                 var pendingIntent = PendingIntent.GetActivity(mContext, 0, intent, PendingIntentFlags.OneShot);
 
-                var alarmAttributes = new AudioAttributes.Builder()
-                    .SetContentType(AudioContentType.Sonification)
-                    .SetUsage(AudioUsageKind.Notification).Build();
+              
 
                 mBuilder = new NotificationCompat.Builder(mContext);
                 mBuilder.SetSmallIcon(Resource.Drawable.IcoTienda);
                 mBuilder.SetContentTitle(title)
-                        //  .SetSound(sound)
                         .SetAutoCancel(true)
                         .SetContentTitle(title)
                         .SetContentText(message)
