@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "598305829903",
+    "firebase_url": "https://tiendita-fdfaa.firebaseio.com",
+    "project_id": "tiendita-fdfaa",
+    "storage_bucket": "tiendita-fdfaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598305829903:android:f195af82982fb394035f7a",
+        "android_client_info": {
+          "package_name": "com.companyname.shop.forms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598305829903-1pveba88fvisqf5gjhs60jfnlaq5tdqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6CjJ6efTW0SW5cUv8SPnmiEe7p-mOuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598305829903-1pveba88fvisqf5gjhs60jfnlaq5tdqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
