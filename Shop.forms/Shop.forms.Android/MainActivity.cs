@@ -17,7 +17,7 @@ namespace Shop.forms.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             FirebaseMessaging.Instance.SubscribeToTopic("Todos");
-            string myToken = FirebaseInstanceId.Instance.Token;
+           string myToken = FirebaseInstanceId.Instance.Token;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(savedInstanceState);
