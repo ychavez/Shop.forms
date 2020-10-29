@@ -12,7 +12,6 @@ namespace GenericsExample
         {
             var mGeneric = new Generico<string[], decimal>();
 
-
             string[] generico = mGeneric.PropiedadGenerica;
 
             decimal generico2 = mGeneric.PropiedadGenerica2;

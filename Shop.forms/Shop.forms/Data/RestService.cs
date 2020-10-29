@@ -66,7 +66,44 @@ namespace Shop.forms.Data
                 return content;
             }
             Debug.WriteLine("Error al dar de alta el elemento {0}",content);
+            return "";       
+        }
+
+        /// <summary>
+        /// realiza put al servidor mandando un objeto de tipo T y un id en la URL
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Data"></param>
+        /// <param name="uri"></param>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<string> PutDataAsync<T>(T Data, string uri, int Id)
+        {
+            var json = JsonConvert.SerializeObject(Data);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _client.PutAsync(string.Concat(uri, "/", Id.ToString()),data);
+            string content = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return content;
+            }
+            Debug.WriteLine("Error al dar de modificar el elemento {0}", content);
             return "";
+        }
+
+        /// <summary>
+        /// Elimina un objeto tomando como id el parametro id en la URL
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task DeleteDataAsync (string uri, int id)
+        {
+            var response = await _client.DeleteAsync(string.Concat(uri, "/", id.ToString()));
+            if (!response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine("Error al eliminar el elemento {0}", await response.Content.ReadAsStringAsync());
+            }
         }
     }
 }
