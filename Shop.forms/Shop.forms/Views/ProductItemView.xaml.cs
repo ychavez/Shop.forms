@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Shop.forms.Models;
+using Shop.forms.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,11 @@ namespace Shop.forms.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductItemView : ContentPage
     {
-        public ProductItemView()
+        private ProductItemViewModel viewModel;
+        public ProductItemView(Product product = null)
         {
             InitializeComponent();
+            BindingContext = viewModel = new ProductItemViewModel(product) { Navigation = Navigation };
         }
     }
 }
