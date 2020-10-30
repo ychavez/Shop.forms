@@ -1,4 +1,5 @@
-﻿using Shop.forms.ViewModels;
+﻿using Shop.forms.Models;
+using Shop.forms.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,14 @@ namespace Shop.forms.Views
         {
             base.OnAppearing();
             viewModel.LoadProducts();
+        }
+
+        private async void ProductList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (!(e.Item is Product item))
+                return;
+            await Navigation.PushAsync(new ProductItemView(item));
+            ListProduct.SelectedItem = null;
         }
     }
 }

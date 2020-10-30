@@ -6,7 +6,7 @@
         <ToolbarItem x:Name="btnAdd" Text="Agregar" Command="{Binding AddCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems> 
     <ContentPage.Content>
-        <ListView x:Name="ListProduct" ItemsSource="{Binding Products}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding Refresh}" IsRefreshing="{Binding IsBusy}">
+        <ListView x:Name="ListProduct" ItemsSource="{Binding Products}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding Refresh}" IsRefreshing="{Binding IsBusy}" ItemTapped="ProductList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

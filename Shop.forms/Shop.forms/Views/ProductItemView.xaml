@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Shop.forms.Views.ProductItemView">
     <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnDelete" Text="Eliminar" Command="{Binding DeleteCommand}"></ToolbarItem>
         <ToolbarItem x:Name="btnSave" Text="Guardar" Command="{Binding SaveCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout>            <Frame CornerRadius="100"  HeightRequest="200"  WidthRequest="200" HorizontalOptions="Center" Padding="0" IsClippedToBounds="True">                <Image x:Name="ImgMain" Source="{Binding ImgSource}" HorizontalOptions="Center"  VerticalOptions="Center"></Image>            </Frame>
             <Label Text="Nombre" FontSize="Medium"></Label>
             <Entry Text="{Binding Product.Name}" FontSize="Small"/>
             <Label Text="Descripcion" FontSize="Medium"></Label>
@@ -16,6 +17,8 @@
             <Label Text="Precio" FontSize="Medium"></Label>
             <Entry Text="{Binding Product.Price}" FontSize="Small" Keyboard="Numeric"/>
             <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
+            <Button x:Name="btnTakePicture" Text="Tomar foto" Command="{Binding TakePicture}"></Button>
+            <Button x:Name="btnUploadPicture" Text="Subir Foto" Command="{Binding UploadPicture}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
