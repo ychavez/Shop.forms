@@ -7,17 +7,15 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Text="{Binding Product.Name}" FontSize="Small"/>
             <Label Text="Nombre" FontSize="Medium"></Label>
-            
-            <Entry Text="{Binding Product.Description}" FontSize="Small"/>
+            <Entry Text="{Binding Product.Name}" FontSize="Small"/>
             <Label Text="Descripcion" FontSize="Medium"></Label>
-            
-            <Entry Text="{Binding Product.Color}" FontSize="Small"/>
+            <Entry Text="{Binding Product.Description}" FontSize="Small"/>
             <Label Text="Color" FontSize="Medium"></Label>
-           
-            <Entry Text="{Binding Product.Price}" FontSize="Small"/>
+            <Entry Text="{Binding Product.Color}" FontSize="Small"/>
             <Label Text="Precio" FontSize="Medium"></Label>
+            <Entry Text="{Binding Product.Price}" FontSize="Small" Keyboard="Numeric"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

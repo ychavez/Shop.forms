@@ -8,7 +8,7 @@ namespace Shop.forms.Models
    public class Product:BaseModel
     {
         private int _Id;
-        public int Id { get => _Id; set => SetProperty(ref _Id, value; }
+        public int Id { get => _Id; set => SetProperty(ref _Id, value); }
 
         private string _Name;
         public string Name { get => _Name; set => SetProperty(ref _Name, value); }

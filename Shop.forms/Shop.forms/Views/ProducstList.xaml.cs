@@ -19,5 +19,10 @@ namespace Shop.forms.Views
             InitializeComponent();
             BindingContext = viewModel = new ProductsViewModel() { Navigation = Navigation };
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.LoadProducts();
+        }
     }
 }

@@ -16,12 +16,14 @@ namespace Shop.forms.ViewModels
         public Product Product { get; set; }
         public ICommand SaveCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+       
         public ProductItemViewModel(Product product = null)
         {
             Product = product ?? new Product();
             _Context = new Context();
             SaveCommand = new Command(Save);
         }
+
 
         private async void Save()
         {

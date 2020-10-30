@@ -2,25 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Shop.forms.Views.ProducstList">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAdd" Text="Agregar" Command="{Binding AddCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems> 
     <ContentPage.Content>
-        <ListView x:Name="ListProduct" ItemsSource="{Binding Products}">
-
+        <ListView x:Name="ListProduct" ItemsSource="{Binding Products}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding Refresh}" IsRefreshing="{Binding IsBusy}">
             <ListView.ItemTemplate>
-
-
                 <DataTemplate>
                     <ViewCell>
-                        
-                <StackLayout>
-                    <Label Text="{Binding Name}" FontSize="20"></Label>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontSize="20"></Label>
                             <Label Text="{Binding Description}" FontSize="12"></Label>
-                </StackLayout>
-
-
-
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
-
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
