@@ -32,6 +32,41 @@ namespace Shop.forms.ViewModels
             SaveCommand = new Command(Save);
             DeleteCommand = new Command(Delete);
             TakePicture = new Command(takePicture);
+            UploadPicture = new Command(takeFromFile);
+            if (product != null)
+            {
+                ImgSource = ImageSource.FromStream(() => new MemoryStream(product.Picture));
+            }
+        }
+        private async void takeFromFile() 
+        {
+
+            IsBusy = true;
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await Application.Current.MainPage.DisplayAlert("Fotos no soportadas", "No tiene permisos de almacenamiento", "OK");
+            }
+            var file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+            {
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small
+            });
+            if (file == null)
+            {
+                IsBusy = false;
+                return;
+            }
+            ImgSource = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                using (var memoryStream = new MemoryStream())
+                {
+                    file.GetStream().CopyTo(memoryStream);
+                    Product.Picture = memoryStream.ToArray();
+                }
+                file.Dispose();
+                IsBusy = false;
+                return stream;
+            });
         }
         private async void takePicture()
         {
