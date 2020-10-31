@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using ModernHttpClient;
@@ -17,6 +18,8 @@ namespace Shop.forms.Data
         private HttpClient _client;
         private Uri _UrlBase;
 
+
+        public RestService(string UrlBase, string Token) : this(UrlBase) => _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
         public RestService(string uri)
         {
@@ -104,6 +107,16 @@ namespace Shop.forms.Data
             {
                 Debug.WriteLine("Error al eliminar el elemento {0}", await response.Content.ReadAsStringAsync());
             }
+        }
+
+        public bool CheckToken(string token)
+        {
+            _client.DefaultRequestHeaders.Authorization =
+                      new AuthenticationHeaderValue("Bearer", token);
+            var response = _client.GetAsync("Account/Check").ConfigureAwait(false).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+                return true;
+            return false;
         }
     }
 }
