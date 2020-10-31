@@ -21,5 +21,7 @@ namespace Shop.forms.Data
         public async Task DeleteProduct(Product product) => await _RestService.DeleteDataAsync(Globals.ProductsUri, product.Id);
         public async Task<string> Login(Login user) => await _RestService.PostDataAsync<Login>(user,Globals.LoginUri);
         public bool CheckToken(string token) => _RestService.CheckToken(token);
+
+        public bool ChechService() => _RestService.CheckService();
     }
 }

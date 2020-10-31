@@ -114,5 +114,9 @@ namespace Shop.forms.Data
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return _client.GetAsync("Account/Check").ConfigureAwait(false).GetAwaiter().GetResult().IsSuccessStatusCode;
         }
+
+        public bool CheckService() { 
+        return _client.GetAsync(Globals.HelatyUrl).ConfigureAwait(false).GetAwaiter().GetResult().IsSuccessStatusCode;
+        }
     }
 }

@@ -13,10 +13,16 @@ namespace Shop.forms
         {
             InitializeComponent();
 
+                _Context = new Context();
+            if (!_Context.ChechService())
+            {
+                MainPage = new MainPage();
+                return;
+            }
+
             if (Xamarin.Forms.Application.Current.Properties.ContainsKey("token"))
             {
                 string Token = Xamarin.Forms.Application.Current.Properties["token"].ToString();
-                _Context = new Context();
                 if (_Context.CheckToken(Token))
                 {
                     Globals.ApiToken = Xamarin.Forms.Application.Current.Properties["token"].ToString();

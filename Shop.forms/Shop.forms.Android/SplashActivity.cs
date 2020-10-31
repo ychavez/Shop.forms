@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Shop.forms.Droid
 {
-    [Activity(Label = "Tienda", MainLauncher = true, Theme = "@style/SplashTheme")]
+    [Activity(Label = "Tienda", MainLauncher = true, Theme = "@style/SplashTheme", Icon = "@drawable/IcoTienda")]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
