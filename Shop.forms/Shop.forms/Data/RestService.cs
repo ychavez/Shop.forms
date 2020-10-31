@@ -111,12 +111,8 @@ namespace Shop.forms.Data
 
         public bool CheckToken(string token)
         {
-            _client.DefaultRequestHeaders.Authorization =
-                      new AuthenticationHeaderValue("Bearer", token);
-            var response = _client.GetAsync("Account/Check").ConfigureAwait(false).GetAwaiter().GetResult();
-            if (response.IsSuccessStatusCode)
-                return true;
-            return false;
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            return _client.GetAsync("Account/Check").ConfigureAwait(false).GetAwaiter().GetResult().IsSuccessStatusCode;
         }
     }
 }

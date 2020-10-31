@@ -18,7 +18,7 @@ namespace Shop.forms.ViewModels
         private ObservableCollection<Product> _Products;
         public ProductsViewModel()
         {
-            _Context = new Context();
+            _Context = new Context(Globals.ApiToken);
             LoadProducts();
             Refresh = new Command(LoadProducts);
         }

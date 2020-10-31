@@ -7,6 +7,8 @@ namespace Shop.forms.Data
     public static class Globals
     {
         public const string ServiceBase = "https://productsapidw.azurewebsites.net/";
-        public const string ProductsUri = "api/products";
+        public const string ProductsUri = "Api/Products";
+        public const string LoginUri = "Api/Account/Login";
+        public static string ApiToken { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace Shop.forms.ViewModels
         public ProductItemViewModel(Product product = null)
         {
             Product = product ?? new Product();
-            _Context = new Context();
+            _Context = new Context(Globals.ApiToken);
             SaveCommand = new Command(Save);
             DeleteCommand = new Command(Delete);
             TakePicture = new Command(takePicture);
